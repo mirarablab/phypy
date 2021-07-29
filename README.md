@@ -5,7 +5,7 @@ To install, clone or download and decompress the zip file of this repo. Go to th
 
 ```pip install .```
 
-## Scripts to handle sequences (i.e. FASTA files)
+## Scripts for FASTA files
 **sample_sequences.py**: randomly sample a subset of sequences (i.e. species) from an input FASTA file.
 
 **select_sequences.py**: select out the specified set of sequences. 
