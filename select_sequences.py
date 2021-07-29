@@ -7,7 +7,7 @@ parser = argparse.ArgumentParser()
 
 parser.add_argument("-i","--input",required=True,help="Input file (FASTA)")
 parser.add_argument("-o","--output",required=True,help="Output file (FASTA")
-parser.add_argument("-l","--listing",required=True,help="Selected set")
+parser.add_argument("-l","--listing",required=True,help="Selected set; must be put in quotes")
 
 args = vars(parser.parse_args())
 
