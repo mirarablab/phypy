@@ -10,7 +10,11 @@ def read_label_from_primary_tree(t,prefix="I"):
     for node in t.preorder_node_iter():
         if not node.is_leaf():
             label_mapping[node.bipartition] = node.label
-            nextID = max(nextID,float(node.label[len(prefix):])) 
+            if node.label[:len(prefix)] == prefix:
+                try:                    
+                    nextID = max(nextID,float(node.label[len(prefix):]))
+                except:
+                    continue     
     
     return label_mapping, nextID+1
     
@@ -54,7 +58,7 @@ def main():
 
     parser.add_argument("-i","--input",required=True,help="Input trees")
     parser.add_argument("-o","--output",required=True,help="Output trees")
-    parser.add_argument("-p","--primary",required=False,help="Primary tree: if specified, the input trees will be labeled according to this tree. Must specify the prefix via -r option when you have a primary tree")
+    parser.add_argument("-p","--primary",required=False,help="Primary tree: if specified, the input trees will be labeled according to this tree. If the labels of the primary tree have a prefix, specify it using -r")
     parser.add_argument("-r","--prefix",required=False,help="Prefix: all labels will be added this prefix. Default:I")
 
     args = vars(parser.parse_args())
